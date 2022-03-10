@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Cars {
     private static final int CARS_COUNT_MIN = 2;
@@ -32,10 +33,15 @@ public class Cars {
     }
 
     public void tryToMove() {
-        for (Car car : cars) {
+//        for (Car car : cars) {
+//            final int currentRpm = RandomUtils.nextNumber();
+//            car.tryToMove(currentRpm);
+//        }
+        cars.forEach(car -> {
             final int currentRpm = RandomUtils.nextNumber();
             car.tryToMove(currentRpm);
-        }
+        });
+
     }
 
     public int findPositionMax() {
