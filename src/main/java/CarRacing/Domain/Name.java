@@ -10,7 +10,7 @@ public class Name {
 
     public Name(final String name){
         validate(name);
-        this.name = name;
+        this.name = name.trim();
     }
 
     public Name(final Name name){
