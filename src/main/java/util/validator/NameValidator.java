@@ -14,7 +14,6 @@ public class NameValidator extends Validator{
 	// 전체 확인
 	public static void validateNames(String input){
 		isNull(input);
-		isEmpty(input);
 		isDuplicated(input);
 		countCar(input);
 	}
@@ -22,7 +21,6 @@ public class NameValidator extends Validator{
 	// 이름 하나씩 확인
 	public static void validateName(String input){
 		isNull(input);
-		isEmpty(input, "이름에 ");
 		isRange(input);
 	}
 

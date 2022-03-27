@@ -15,11 +15,4 @@ public class Validator {
 			throw new IllegalArgumentException(EMPTY_MESSAGE);
 		}
 	}
-
-	public static void isEmpty(String input, String msg){
-		if(input.isEmpty()){
-			throw new IllegalArgumentException(msg + EMPTY_MESSAGE);
-		}
-	}
-
 }
