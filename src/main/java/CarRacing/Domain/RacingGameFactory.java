@@ -1,7 +1,5 @@
 package CarRacing.Domain;
 
-import jdk.jshell.EvalException;
-
 import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -10,11 +8,11 @@ public class RacingGameFactory {
     private static final String NAME_SPLIT_DELIMETER = ",";
     private static final Pattern NUMBER_PATTERN = Pattern.compile("[0-9]+");
 
-    private RacingGameFactory(){
+    private RacingGameFactory() {
 
     }
 
-    public static Cars generateCars(final String names){
+    public static Cars generateCars(final String names) {
         final String[] parsedNames = names.split(NAME_SPLIT_DELIMETER, -1);
         return new Cars(Arrays.stream(parsedNames)
                 .map(Name::new)
@@ -22,18 +20,18 @@ public class RacingGameFactory {
                 .collect(Collectors.toList()));
     }
 
-    public static Trial generateTrial(final String trial){
+    public static Trial generateTrial(final String trial) {
         validateNumber(trial);
-        try{
+        try {
             int trialNumber = Integer.parseInt(trial);
             return new Trial(trialNumber);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Integer 범위 밖의 입력입니다.");
         }
     }
 
-    private static void validateNumber(final String input){
-        if(!NUMBER_PATTERN.matcher(input).matches()){
+    private static void validateNumber(final String input) {
+        if (!NUMBER_PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
         }
     }

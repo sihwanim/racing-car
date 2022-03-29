@@ -4,43 +4,45 @@ import CarRacing.Domain.Cars;
 import CarRacing.Domain.RacingGame;
 import CarRacing.Domain.RacingGameFactory;
 import CarRacing.Domain.Trial;
-import CarRacing.View.RacingGameView;
+import CarRacing.View.RacingGameInputView;
+import CarRacing.View.RacingGameOutputView;
 
 import java.util.List;
 
 public class RacingGameController {
-    private RacingGameController(){
+    public RacingGameController() {
 
     }
 
-    public static void play(){
+    public void play() {
         final RacingGame racingGame = prepare();
         race(racingGame);
         finish(racingGame);
     }
-    public static RacingGame prepare(){
-        String input = RacingGameView.requestCars();
+
+    public RacingGame prepare() {
+        String input = RacingGameInputView.requestCars();
         Cars cars = RacingGameFactory.generateCars(input);
 
-        input = RacingGameView.requestTrial();
+        input = RacingGameInputView.requestTrial();
         Trial trial = RacingGameFactory.generateTrial(input);
 
         return new RacingGame(cars, trial);
     }
 
-    private static void race(final RacingGame racingGame){
-        RacingGameView.printNewLine();
-        RacingGameView.printResult();
+    private void race(final RacingGame racingGame) {
+        RacingGameOutputView.printNewLine();
+        RacingGameOutputView.printResult();
 
-        while (!racingGame.isFinished()){
+        while (!racingGame.isFinished()) {
             racingGame.tryToMove();
-            RacingGameView.printCarPositions(racingGame);
-            RacingGameView.printNewLine();
+            RacingGameOutputView.printCarPositions(racingGame);
+            RacingGameOutputView.printNewLine();
         }
     }
 
-    private static void finish(final RacingGame racingGame){
-        final List<String> winnerNames = racingGame.getWinners();
-        RacingGameView.printWinners(winnerNames);
+    private void finish(final RacingGame racingGame) {
+        final List<String> winnerNames = racingGame.findWinners();
+        RacingGameOutputView.printWinners(winnerNames);
     }
 }
