@@ -9,33 +9,33 @@ public class Trial {
     private final int finalTrialNumber;
     private int currentTrialNumber;
 
-    public Trial(final int finalTrialNumber){
+    public Trial(final int finalTrialNumber) {
         validateBound(finalTrialNumber);
         this.finalTrialNumber = finalTrialNumber;
         this.currentTrialNumber = 0;
     }
 
-    private static void validateBound(final int value){
-        if(value < TRIAL_MIN || value > TRIAL_MAX){
+    private static void validateBound(final int value) {
+        if (value < TRIAL_MIN || value > TRIAL_MAX) {
             throw new IllegalArgumentException(
-                    "숫자는 " + TRIAL_MIN + "이상 " + TRIAL_MAX + "이하여야 합니다.");
+                    String.format("숫자는 %d 이상 %d 이하여야 합니다.",TRIAL_MIN,TRIAL_MAX));
         }
     }
 
-    public void moveToNextTrial(){
+    public void moveToNextTrial() {
         currentTrialNumber++;
     }
 
-    public boolean isFinished(){
+    public boolean isFinished() {
         return currentTrialNumber >= finalTrialNumber;
     }
 
     @Override
-    public boolean equals(Object o){
-        if(this == o){
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if(o == null || getClass() != o.getClass()){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Trial trial = (Trial) o;
@@ -44,7 +44,7 @@ public class Trial {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hash(finalTrialNumber, currentTrialNumber);
     }
 }

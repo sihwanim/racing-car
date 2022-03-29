@@ -8,38 +8,40 @@ public class Name {
 
     private final String name;
 
-    public Name(final String name){
+    public Name(final String name) {
         validate(name);
         this.name = name.trim();
     }
 
-    public Name(final Name name){
+    public Name(final Name name) {
         this.name = name.getName();
     }
 
-    public static void validate (final String name){
-        if(name.length()>NAME_LENGTH_MAX || name.length() < NAME_LENGTH_MIN){
+    public static void validate(final String name) {
+        if (name.length() > NAME_LENGTH_MAX || name.length() < NAME_LENGTH_MIN) {
             throw new IllegalArgumentException(
-                    "자동차 이름은" + NAME_LENGTH_MIN +"자 이상" + NAME_LENGTH_MAX + "자 이하로 입력해주세요.");
+                    String.format("자동차 이름은 %d 자 이상 %d 자 이하로 입력해주세요.",NAME_LENGTH_MIN,NAME_LENGTH_MAX));
         }
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 
     @Override
-    public boolean equals(Object o){
-        if(this == o){
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if(o == null || getClass() != o.getClass()){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Name name1 = (Name) o;
         return Objects.equals(name, name1.name);
     }
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hash(name);
     }
 }
