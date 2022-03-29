@@ -19,13 +19,13 @@ public class Cars {
         this.cars = new ArrayList<>(cars);
     }
 
-    private static void validateNumberOfCars(final List<Car> cars) {
+    private void validateNumberOfCars(final List<Car> cars) {
         if (cars.size() < CARS_COUNT_MIN) {
             throw new IllegalArgumentException("자동차는 두 대 이상 입력해야 합니다.");
         }
     }
 
-    private static void validateDuplication(final List<Car> cars) {
+    private void validateDuplication(final List<Car> cars) {
         final HashSet<Car> nonDuplicateCars = new HashSet<>(cars);
         if (nonDuplicateCars.size() != cars.size()) {
             throw new IllegalArgumentException("중복되는 이름을 입력할 수 없습니다.");
@@ -33,10 +33,6 @@ public class Cars {
     }
 
     public void tryToMove() {
-//        for (Car car : cars) {
-//            final int currentRpm = RandomUtils.nextNumber();
-//            car.tryToMove(currentRpm);
-//        }
         cars.forEach(car -> {
             final int currentRpm = RandomUtils.nextNumber();
             car.tryToMove(currentRpm);
