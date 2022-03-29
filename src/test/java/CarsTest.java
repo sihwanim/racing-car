@@ -12,8 +12,8 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 public class CarsTest {
     @Test
     @DisplayName("정상적인 경주할 자동차들 생성")
-    void newCarsTest_정상_입력(){
-        assertThatCode(()->{
+    void newCarsTest_정상_입력() {
+        assertThatCode(() -> {
             final List<Car> cars = new ArrayList<>();
             cars.add(new Car(new Name("루트")));
             cars.add(new Car(new Name("소롱")));

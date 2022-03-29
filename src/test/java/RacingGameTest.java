@@ -12,9 +12,9 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingGameTest {
-    private static Car newCar(String name, int position){
+    private static Car newCar(String name, int position) {
         final Car car = new Car(new Name(name));
-        for(int i = 0 ; i < position; i++){
+        for (int i = 0; i < position; i++) {
             car.tryToMove(4);
         }
         return car;
@@ -23,24 +23,24 @@ public class RacingGameTest {
     @ParameterizedTest
     @DisplayName("우승자 판별 테스트")
     @MethodSource("provideRacingGameForFindWinner")
-    void findWinnerTest(RacingGame racingGame, List<String> expected){
-        final List<String> actual = racingGame.getWinners();
+    void findWinnerTest(RacingGame racingGame, List<String> expected) {
+        final List<String> actual = racingGame.findWinners();
         assertThat(actual).isEqualTo(expected);
     }
 
-    private static Stream<Arguments> provideRacingGameForFindWinner(){
+    private static Stream<Arguments> provideRacingGameForFindWinner() {
         return Stream.of(
-            Arguments.of(new RacingGame(provideCars_우승자_한명(), new Trial(1)),
-                    Arrays.asList("루트")),
-            Arguments
-                    .of(new RacingGame(provideCars_우승자_두명(), new Trial(1)),
-                    Arrays.asList("루트", "소롱")),
-            Arguments.of(new RacingGame(provideCars_모두_움직이지_않음(), new Trial(1)),
-                    Arrays.asList("루트", "소롱", "포비"))
+                Arguments.of(new RacingGame(provideCars_우승자_한명(), new Trial(1)),
+                        Arrays.asList("루트")),
+                Arguments
+                        .of(new RacingGame(provideCars_우승자_두명(), new Trial(1)),
+                                Arrays.asList("루트", "소롱")),
+                Arguments.of(new RacingGame(provideCars_모두_움직이지_않음(), new Trial(1)),
+                        Arrays.asList("루트", "소롱", "포비"))
         );
     }
 
-    private static Cars provideCars_우승자_한명(){
+    private static Cars provideCars_우승자_한명() {
         List<Car> value = new ArrayList<>();
         value.add(newCar("루트", 5));
         value.add(newCar("소롱", 3));
@@ -48,7 +48,7 @@ public class RacingGameTest {
         return new Cars(value);
     }
 
-    private static Cars provideCars_우승자_두명(){
+    private static Cars provideCars_우승자_두명() {
         List<Car> value = new ArrayList<>();
         value.add(newCar("루트", 5));
         value.add(newCar("소롱", 5));
@@ -56,7 +56,7 @@ public class RacingGameTest {
         return new Cars(value);
     }
 
-    private static Cars provideCars_모두_움직이지_않음(){
+    private static Cars provideCars_모두_움직이지_않음() {
         List<Car> value = new ArrayList<>();
         value.add(new Car(new Name("루트")));
         value.add(new Car(new Name("소롱")));

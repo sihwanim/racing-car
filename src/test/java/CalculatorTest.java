@@ -8,7 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 @DisplayName("계산기 테스트")
 class CalculatorTest {
 
-        Calculator cal = new Calculator();
+    Calculator cal = new Calculator();
+
     @Test
     @DisplayName("계산기에서 덧셈")
     void add() {
@@ -31,9 +32,9 @@ class CalculatorTest {
     @DisplayName("계산기에서 나눗셈")
     void divide() {
         assertAll(
-                () -> assertThat(cal.divide(6,2)).isEqualTo(3),
-                () -> assertThatThrownBy(() ->{
-                    cal.divide(6,0);
+                () -> assertThat(cal.divide(6, 2)).isEqualTo(3),
+                () -> assertThatThrownBy(() -> {
+                    cal.divide(6, 0);
                 }).isInstanceOf(IllegalArgumentException.class)
         );
     }
