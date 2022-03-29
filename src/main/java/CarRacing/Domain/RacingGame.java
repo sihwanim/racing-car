@@ -6,26 +6,26 @@ public class RacingGame {
     private final Cars cars;
     private final Trial trial;
 
-    public RacingGame(final Cars cars, final Trial trial){
+    public RacingGame(final Cars cars, final Trial trial) {
         this.cars = cars;
         this.trial = trial;
     }
 
-    public void tryToMove(){
+    public void tryToMove() {
         cars.tryToMove();
         trial.moveToNextTrial();
     }
 
-    public List<String> getWinners(){
+    public List<String> findWinners() {
         final int positionMax = cars.findPositionMax();
         return cars.findCarNamesLocatedAt(positionMax);
     }
 
-    public boolean isFinished(){
+    public boolean isFinished() {
         return trial.isFinished();
     }
 
-    public List<Car> getCars(){
+    public List<Car> getCars() {
         return cars.getCars();
     }
 }
