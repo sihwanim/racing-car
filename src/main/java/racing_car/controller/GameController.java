@@ -1,16 +1,17 @@
 package racing_car.controller;
 
 import java.util.Scanner;
+import racing_car.view.InputView;
 
 public class GameController {
-    private Scanner scanner;
+    private InputView inputView;
 
     public GameController(Scanner scanner) {
-        this.scanner = scanner;
+        inputView = new InputView(scanner);
     }
 
     public void play() {
-        // 자동차 이름들 입력받기
+        String[] carNames = inputView.inputCarNames();
         // 시도 횟수 입력받기
         // 경기
         // - 1. 1회의 시도마다 자동차들 전진 or 멈춤
