@@ -9,12 +9,15 @@ import racing_car.view.InputView;
 import racing_car.view.OutputView;
 
 public class GameController {
+
     private final InputView inputView;
+    private final OutputView outputView;
     private Cars cars;
 
-    
+
     public GameController(Scanner scanner) {
         inputView = new InputView(scanner);
+        outputView = new OutputView();
     }
 
     public void play() {
@@ -25,16 +28,18 @@ public class GameController {
         );
         int tryCount = inputView.inputTryCount();
         startGame(tryCount);
-        // 우승자 발표
+        announceWinners();
     }
 
-    void startGame(int tryCount) {
-        OutputView outputView = new OutputView();
-
+    public void startGame(int tryCount) {
         outputView.printResultMessage();
         for (int t = 1; t <= tryCount; t++) {
             cars.goCars();
             outputView.printCarPosition(cars.getCars());
         }
+    }
+
+    public void announceWinners() {
+        outputView.printWinners(cars.findWinners());
     }
 }
