@@ -1,6 +1,7 @@
 package racing_car.view;
 
 import static racing_car.utils.StringUtil.limitFiveOrLessLength;
+import static racing_car.utils.StringUtil.removeDuplicates;
 
 import java.util.Scanner;
 
@@ -18,6 +19,6 @@ public class InputView {
         for (int i = 0; i < carNames.length; i++) {
             carNames[i] = limitFiveOrLessLength(carNames[i]);
         }
-        return carNames;
+        return removeDuplicates(carNames);
     }
 }
