@@ -12,7 +12,7 @@ public class GameController {
 
     public void play() {
         String[] carNames = inputView.inputCarNames();
-        // 시도 횟수 입력받기
+        int tryCount = inputView.inputTryCount();
         // 경기
         // - 1. 1회의 시도마다 자동차들 전진 or 멈춤
         // - 2. 실행 결과 출력
