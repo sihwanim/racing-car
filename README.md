@@ -65,4 +65,32 @@ pobi, honux가 최종 우승했습니다.
   - git commit 메세지는 `git commit convention` 을 구글링해본다.
 
 ## 미션 진행 방법
-[코드리뷰 1단계](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/review-step1.md) 4번부터 진행하면 된다.  
+[코드리뷰 1단계](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/review-step1.md) 4번부터 진행하면 된다. 
+
+<br /><br />
+
+***
+## 기능목록
+
+- [ ] 자동차 이름들을 입력받는다.
+  - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
+  - [ ] 자동차 이름은 5자 이하만 가능하다. 그보다 길면 자른다.
+  - [ ] 중복된 이름은 입력되지 않는다.
+
+- [ ] 시도할 횟수를 입력받는다.
+  - [ ] 양수의 정수만 입력받는다.
+
+- [ ] 자동차를 전진하거나 멈춘다.
+  - [ ] 0~9에서 랜덤값을 구한다.
+  - [ ] 4 이상이면 전진, 3 이하이면 멈춤.
+
+- [ ] 시도하는 횟수만큼 자동차를 이동시킨다.
+  - [ ] 중간마다 실행 결과를 출력시킨다.
+
+- [ ] 경기 종료 후, 우승자를 알려준다.
+  - [ ] 우승자는 한 명 이상일 수 있다.
+
+## 예외처리
+- [ ] 잘못된 입력이 들어오면 IllegalArgumentException을 발생한다.
+- [ ] [ERROR]로 시작하는 에러 메시지를 출력한다.
+- [ ] 잘못 입력한 부분부터 입력을 다시 받는다.
