@@ -6,6 +6,7 @@ import static racing_car.utils.NumberUtil.generateRandomNum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,6 +49,35 @@ class CarsTest {
             softly.assertThat(num1).isGreaterThanOrEqualTo(0).isLessThan(10);
             softly.assertThat(num2).isGreaterThanOrEqualTo(0).isLessThan(10);
             softly.assertThat(num3).isGreaterThanOrEqualTo(0).isLessThan(10);
+        });
+    }
+
+    @DisplayName("우승자를 찾아낸다.")
+    @Test
+    void findWinner() {
+        String name = "winner";
+        int position = 3;
+        cars.getCars().add(new Car(name, position));
+
+        String winner = cars.findWinners().get(0);
+
+        assertThat(winner).isEqualTo(name);
+    }
+
+    @DisplayName("우승자들을 찾아낸다.")
+    @Test
+    void findWinners() {
+        String name1 = "winner1";
+        String name2 = "winner2";
+        int position = 3;
+        cars.getCars().add(new Car(name1, position));
+        cars.getCars().add(new Car(name2, position));
+
+        List<String> winners = cars.findWinners();
+
+        assertSoftly(softly -> {
+            softly.assertThat(winners.get(0)).isEqualTo(name1);
+            softly.assertThat(winners.get(1)).isEqualTo(name2);
         });
     }
 }
