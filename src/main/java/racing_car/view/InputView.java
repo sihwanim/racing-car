@@ -1,5 +1,7 @@
 package racing_car.view;
 
+import static racing_car.utils.StringUtil.limitFiveOrLessLength;
+
 import java.util.Scanner;
 
 public class InputView {
@@ -17,9 +19,5 @@ public class InputView {
             carNames[i] = limitFiveOrLessLength(carNames[i]);
         }
         return carNames;
-    }
-
-    public String limitFiveOrLessLength(String s) {
-        return s.length() <= 5 ? s : s.substring(0, 5);
     }
 }
