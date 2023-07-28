@@ -26,7 +26,7 @@ class CarTest {
     @Test
     void not_go() {
         car.go(false);
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @DisplayName("전진조건을 통과한 경우")
