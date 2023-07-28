@@ -9,6 +9,7 @@ import racing_car.view.InputView;
 
 public class GameController {
     private final InputView inputView;
+    private Cars cars;
 
     
     public GameController(Scanner scanner) {
@@ -17,16 +18,19 @@ public class GameController {
 
     public void play() {
         String[] carNames = inputView.inputCarNames();
-        int tryCount = inputView.inputTryCount();
-        Cars cars = new Cars(Arrays.stream(carNames)
+        cars = new Cars(Arrays.stream(carNames)
             .map(Car::new)
             .collect(Collectors.toList())
         );
-
-        // 경기
-        // - 1. 1회의 시도마다 자동차들 전진 or 멈춤
-        // - 2. 실행 결과 출력
-        // - 3. 시도 횟수만큼 반복
+        int tryCount = inputView.inputTryCount();
+        startGame(tryCount);
         // 우승자 발표
+    }
+
+    void startGame(int tryCount) {
+        for (int t = 1; t <= tryCount; t++) {
+            cars.goCars();
+            // TODO: 실행 결과 출력
+        }
     }
 }
