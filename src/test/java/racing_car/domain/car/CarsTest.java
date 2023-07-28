@@ -1,10 +1,11 @@
 package racing_car.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.SoftAssertions.assertSoftly;
+import static racing_car.utils.NumberUtil.generateRandomNum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,5 +35,19 @@ class CarsTest {
         Car car = cars.getCars().get(0);
         cars.goCar(car, 2);
         assertThat(car.getPosition()).isEqualTo(0);
+    }
+
+    @DisplayName("0 ~ 9 사이 숫자를 생성한다.")
+    @Test
+    void generateNum() {
+        int num1 = generateRandomNum(10);
+        int num2 = generateRandomNum(10);
+        int num3 = generateRandomNum(10);
+
+        assertSoftly(softly -> {
+            softly.assertThat(num1).isGreaterThanOrEqualTo(0).isLessThan(10);
+            softly.assertThat(num2).isGreaterThanOrEqualTo(0).isLessThan(10);
+            softly.assertThat(num3).isGreaterThanOrEqualTo(0).isLessThan(10);
+        });
     }
 }
