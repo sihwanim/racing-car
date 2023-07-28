@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import racing_car.domain.car.Car;
 import racing_car.domain.car.Cars;
 import racing_car.view.InputView;
+import racing_car.view.OutputView;
 
 public class GameController {
     private final InputView inputView;
@@ -28,9 +29,12 @@ public class GameController {
     }
 
     void startGame(int tryCount) {
+        OutputView outputView = new OutputView();
+
+        outputView.printResultMessage();
         for (int t = 1; t <= tryCount; t++) {
             cars.goCars();
-            // TODO: 실행 결과 출력
+            outputView.printCarPosition(cars.getCars());
         }
     }
 }
