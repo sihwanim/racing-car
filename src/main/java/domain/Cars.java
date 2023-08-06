@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-	private static List<Car> cars;
+	private List<Car> cars;
 	private static final String SPLIT_POINT = ",";
 	private static final int MINIMUM_COUNT = 0;
 	private static final String MINIMUM_COUNT_ERROR_MESSAGE = "차량이 한대 이상이어야 합니다.";
@@ -76,7 +76,7 @@ public class Cars {
 			.orElse(0);
 	}
 
-	public static List<Car> getCars() {
+	public List<Car> getCars() {
 		return cars;
 	}
 }

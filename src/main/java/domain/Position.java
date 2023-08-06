@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Position {
 
-	private static int position;
+	private int position;
 	private static final int CHANGE_POSITION_NUMBER = 4;
 	private static final int MAX_RANGE = 9;
 	private static final int MIN_RANGE = 0;
@@ -13,7 +13,7 @@ public class Position {
 		this.position = position;
 	}
 
-	public static int getPosition() {
+	public int getPosition() {
 		return position;
 	}
 

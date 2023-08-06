@@ -3,8 +3,8 @@ package domain;
 import java.util.Random;
 
 public class Car {
-	private static Name name;
-	private static Position position;
+	private Name name;
+	private Position position;
 	private static final int INIT_POSITION = 0;
 
 	public Car(String name) {
