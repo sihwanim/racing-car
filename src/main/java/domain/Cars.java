@@ -15,10 +15,6 @@ public class Cars {
 
 	public Cars(String carNames) {
 		this.cars = splitNames(carNames);
-		for (Car car : cars) {
-			System.out.println(car.getName());
-		}
-		System.out.println(cars.toString());
 	}
 
 	public static List<Car> splitNames(String carNames) {
@@ -28,18 +24,11 @@ public class Cars {
 		validateCountOfCars(carNameList);
 		validateDuplication(carNameList);
 
-		List<Car> carList = new ArrayList();
-//		List<Car> cars = carNameList.stream()
-//			.map(Car::new)
-//			.collect(Collectors.toList());
-		for (String name : carNameList) {
-			Car car = new Car(name);
-			carList.add(car);
-		}
+		List<Car> cars = carNameList.stream()
+			.map(Car::new)
+			.collect(Collectors.toList());
 
-		carList.forEach(car -> System.out.println(car.getName()));
-
-		return carList;
+		return cars;
 	}
 
 	public void goForwardRandomly() {
@@ -50,10 +39,12 @@ public class Cars {
 
 	public List<String> getWinners() {
 		final int maxPosition = getMaxPosition();
-		return cars.stream()
+		List<String> winners = cars.stream()
 			.filter(car -> car.isSamePosition(maxPosition))
 			.map(Car::getName)
 			.collect(Collectors.toList());
+
+		return winners;
 	}
 
 	private static void validateCountOfCars(List<String> carList) {

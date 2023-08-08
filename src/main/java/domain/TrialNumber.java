@@ -2,7 +2,7 @@ package domain;
 
 public class TrialNumber {
 
-	private static int trialNumber;
+	private int trialNumber;
 	private static final String WRONG_TYPE_ERROR_MESSAGE = "시도 횟수는 정수만 입력할 수 있습니다.";
 	private static final String OUT_OF_RANGE_ERROR_MESSAGE = "범위 내의 횟수가 아닙니다. (1 ~ 1000)";
 	private static final int MIN_RANGE = 1;

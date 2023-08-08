@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Position {
 
-	private int position;
+	private final int position;
 	private static final int CHANGE_POSITION_NUMBER = 4;
 	private static final int MAX_RANGE = 9;
 	private static final int MIN_RANGE = 0;
@@ -20,11 +20,12 @@ public class Position {
 	public Position changePosition() {
 		Random random = new Random();
 		int randomNumber = random.nextInt(MAX_RANGE - MIN_RANGE) + MIN_RANGE;
+		int newPosition = position;
 		if (randomNumber >= CHANGE_POSITION_NUMBER) {
-			position += 1;
+			newPosition += 1;
 		}
 
-		return new Position(position);
+		return new Position(newPosition);
 	}
 
 	@Override

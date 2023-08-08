@@ -13,18 +13,18 @@ public class Car {
 	}
 
 	public String getName() {
-		return name.getName();
+		return this.name.getName();
 	}
 
 	public int getPosition() {
-		return position.getPosition();
+		return this.position.getPosition();
 	}
 
 	public void goForward() {
-		position = position.changePosition();
+		this.position = position.changePosition();
 	}
 
 	public boolean isSamePosition(int maxPosition) {
-		return this.position.equals(maxPosition);
+		return this.position.equals(new Position(maxPosition));
 	}
 }
