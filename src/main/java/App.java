@@ -1,3 +1,5 @@
+
+
 import CarRacing.Controller.RacingGameController;
 
 import java.util.Arrays;
@@ -5,7 +7,7 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
-        RacingGameController rgc = new RacingGameController();
-        rgc.play();
+        RacingGameController racingGameController = new RacingGameController();
+        racingGameController.play();
     }
 }
