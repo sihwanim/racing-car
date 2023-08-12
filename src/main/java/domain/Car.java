@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Random;
+import util.RandomUtil;
 
 public class Car {
 	private Name name;
@@ -12,6 +13,11 @@ public class Car {
 		this.position = new Position(INIT_POSITION);
 	}
 
+	public Car(String name, int position) {
+		this.name = new Name(name);
+		this.position = new Position(position);
+	}
+
 	public String getName() {
 		return this.name.getName();
 	}
@@ -21,7 +27,9 @@ public class Car {
 	}
 
 	public void goForward() {
-		this.position = position.changePosition();
+		RandomUtil randomUtil = new RandomUtil();
+		int randomNumber = randomUtil.createRandomNumber();
+		this.position = position.changePosition(randomNumber);
 	}
 
 	public boolean isSamePosition(int maxPosition) {

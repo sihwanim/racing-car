@@ -24,7 +24,7 @@ public class Controller {
 		showPositions(cars.getCars());
 
 		// 3. 자동차 이동
-		for (int i = 0; i <= trialNumber.getTrialNumber(); i++) {
+		for (int i = 0; i < trialNumber.getTrialNumber(); i++) {
 			cars.goForwardRandomly();
 			showPositions(cars.getCars());
 		}

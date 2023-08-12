@@ -6,8 +6,6 @@ public class Position {
 
 	private final int position;
 	private static final int CHANGE_POSITION_NUMBER = 4;
-	private static final int MAX_RANGE = 9;
-	private static final int MIN_RANGE = 0;
 
 	public Position(int position) {
 		this.position = position;
@@ -17,9 +15,7 @@ public class Position {
 		return position;
 	}
 
-	public Position changePosition() {
-		Random random = new Random();
-		int randomNumber = random.nextInt(MAX_RANGE - MIN_RANGE) + MIN_RANGE;
+	public Position changePosition(int randomNumber) {
 		int newPosition = position;
 		if (randomNumber >= CHANGE_POSITION_NUMBER) {
 			newPosition += 1;
