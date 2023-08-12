@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
+import util.RandomUtil;
 
 public class Cars {
 	private List<Car> cars;
@@ -32,8 +33,11 @@ public class Cars {
 	}
 
 	public void goForwardRandomly() {
+		RandomUtil randomUtil = new RandomUtil();
+
 		for (Car car : cars) {
-			car.goForward();
+			int randomNumber = randomUtil.createRandomNumber();
+			car.goForward(randomNumber);
 		}
 	}
 

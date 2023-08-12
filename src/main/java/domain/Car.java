@@ -26,9 +26,7 @@ public class Car {
 		return this.position.getPosition();
 	}
 
-	public void goForward() {
-		RandomUtil randomUtil = new RandomUtil();
-		int randomNumber = randomUtil.createRandomNumber();
+	public void goForward(int randomNumber) {
 		this.position = position.changePosition(randomNumber);
 	}
 
