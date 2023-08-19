@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
     private final Cars cars;
@@ -21,7 +22,14 @@ public class Game {
     }
 
     public List<Car> findWinners() {
-        return List.of();
+        int winnerPosition = cars.getCars()
+                .stream().mapToInt(Car::getPosition)
+                .max()
+                .orElse(-1);
+
+        return cars.getCars()
+                .stream().filter(car -> car.getPosition() == winnerPosition)
+                .collect(Collectors.toList());
     }
 
     public List<Car> getCars() {
