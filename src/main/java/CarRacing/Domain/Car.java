@@ -1,7 +1,5 @@
 package CarRacing.Domain;
 
-import java.util.Objects;
-
 public class Car {
 
     private final Name name;
@@ -12,13 +10,6 @@ public class Car {
         this.position = new Position(0);
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "name=" + name +
-                ", position=" + position +
-                '}';
-    }
 
     public int getPosition() {
         return this.position.getPosition();
