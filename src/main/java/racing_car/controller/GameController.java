@@ -1,23 +1,24 @@
 package racing_car.controller;
 
+import static racing_car.view.OutputView.printCarPosition;
+import static racing_car.view.OutputView.printResultMessage;
+import static racing_car.view.OutputView.printWinners;
+
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import racing_car.domain.car.Car;
 import racing_car.domain.car.Cars;
 import racing_car.view.InputView;
-import racing_car.view.OutputView;
 
 public class GameController {
 
     private final InputView inputView;
-    private final OutputView outputView;
     private Cars cars;
 
 
     public GameController(Scanner scanner) {
         inputView = new InputView(scanner);
-        outputView = new OutputView();
     }
 
     public void play() {
@@ -32,14 +33,14 @@ public class GameController {
     }
 
     public void startGame(int tryCount) {
-        outputView.printResultMessage();
+        printResultMessage();
         for (int t = 1; t <= tryCount; t++) {
             cars.goCars();
-            outputView.printCarPosition(cars.getCars());
+            printCarPosition(cars.getCars());
         }
     }
 
     public void announceWinners() {
-        outputView.printWinners(cars.findWinners());
+        printWinners(cars.findWinners());
     }
 }

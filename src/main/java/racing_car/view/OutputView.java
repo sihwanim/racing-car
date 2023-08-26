@@ -12,11 +12,11 @@ public class OutputView {
     private static final String WIN_MESSAGE = "가 최종 우승했습니다.";
 
 
-    public void printResultMessage() {
+    public static void printResultMessage() {
         System.out.println(RESULT);
     }
 
-    public void printCarPosition(List<Car> cars) {
+    public static void printCarPosition(List<Car> cars) {
         cars.forEach(car -> {
             String distance = MOVE_DISTANCE_UNIT.repeat(car.getPosition());
             System.out.println(car.getName() + CAR_POSITION_SEPARATOR + distance);
@@ -24,7 +24,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinners(List<String> carNames) {
+    public static void printWinners(List<String> carNames) {
         StringBuilder sb = new StringBuilder();
         carNames.forEach(name -> sb.append(name).append(WINNER_SEPARATOR));
         if (sb.length() > 0) {
