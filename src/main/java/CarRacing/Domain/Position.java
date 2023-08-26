@@ -10,6 +10,12 @@ public class Position {
         this.position = position;
     }
 
+    private static void validate(int position) {
+        if(position < 0){
+            throw new IllegalArgumentException(String.format(POSITION_ERROR_MESSAGE));
+        }
+    }
+
     public int getPosition() {
         return position;
     }
@@ -21,11 +27,7 @@ public class Position {
                 '}';
     }
 
-    private static void validate(int position) {
-        if(position < 0){
-            throw new IllegalArgumentException(String.format(POSITION_ERROR_MESSAGE));
-        }
-    }
+
 
 
 
