@@ -7,16 +7,16 @@ public class PositionTest {
 	@Test
 	@DisplayName("위치 이동 테스트_4이상")
 	void movementOver4Test() {
-		Car car = new Car("amane");
+		Car car = new Car("아마네");
 		int originPosition = car.getPosition();
-		car.goForward(7);
+		car.goForward(4);
 		Assertions.assertEquals(originPosition + 1, car.getPosition());
 	}
 
 	@Test
 	@DisplayName("위치 이동 테스트_4미만")
 	void movementUnder4Test() {
-		Car car = new Car("amane");
+		Car car = new Car("아마네");
 		int originPosition = car.getPosition();
 		car.goForward(2);
 		Assertions.assertEquals(originPosition, car.getPosition());

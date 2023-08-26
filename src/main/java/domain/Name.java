@@ -12,11 +12,11 @@ public class Name {
 	}
 
 	public Name(String name) {
-		validator(name);
+		validateLength(name);
 		this.name = name;
 	}
 
-	public static void validator(String name) {
+	public static void validateLength(String name) {
 		int length = name.length();
 		if (length < MIN_LENGTH || length > MAX_LENGTH) {
 			throw new IllegalArgumentException(name + LENGTH_ERROR_MESSAGE);

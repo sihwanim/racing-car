@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.stream.Collectors;
 import util.RandomUtil;
 
 public class Cars {
-	private List<Car> cars;
+	private final List<Car> cars;
 	private static final String SPLIT_POINT = ",";
 	private static final int MINIMUM_COUNT = 0;
 	private static final String MINIMUM_COUNT_ERROR_MESSAGE = "차량이 한대 이상이어야 합니다.";
@@ -18,7 +17,7 @@ public class Cars {
 		this.cars = splitNames(carNames);
 	}
 
-	public static List<Car> splitNames(String carNames) {
+	public List<Car> splitNames(String carNames) {
 		List<String> carNameList = Arrays.stream(carNames.split(SPLIT_POINT))
 			.collect(Collectors.toList());
 

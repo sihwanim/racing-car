@@ -9,7 +9,7 @@ public class NameTest {
 	@Test
 	@DisplayName("이름 생성 테스트")
 	void createNameTest() {
-		Assertions.assertEquals(new Car("amane").getName(), new Name("amane"));
+		Assertions.assertEquals(new Car("아마네").getName(), new Name("아마네").getName());
 	}
 
 	@Test

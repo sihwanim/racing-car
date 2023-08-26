@@ -1,10 +1,7 @@
 package domain;
 
-import java.util.Random;
-import util.RandomUtil;
-
 public class Car {
-	private Name name;
+	private final Name name;
 	private Position position;
 	private static final int INIT_POSITION = 0;
 

@@ -16,20 +16,16 @@ public class Controller {
 	}
 
 	public void run() {
-		// 1. 초기화
 		final Cars cars = new Cars(InputView.inputCarNames(scanner));
 		final TrialNumber trialNumber = new TrialNumber(InputView.inputTrailNumber(scanner));
 
-		// 2. 1차 출력
 		showPositions(cars.getCars());
 
-		// 3. 자동차 이동
 		for (int i = 0; i < trialNumber.getTrialNumber(); i++) {
 			cars.goForwardRandomly();
 			showPositions(cars.getCars());
 		}
 
-		// 4. 결과 출력
 		showWinners(cars.getWinners());
 	}
 
