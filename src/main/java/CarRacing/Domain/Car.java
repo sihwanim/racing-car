@@ -4,8 +4,7 @@ import java.util.Objects;
 
 public class Car {
 
-    public Name name;
-
+    private final Name name;
     public Position position;
 
     public Car(String name) {
