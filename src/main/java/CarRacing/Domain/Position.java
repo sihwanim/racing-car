@@ -3,16 +3,15 @@ package CarRacing.Domain;
 public class Position {
     private static final int POSITION_MIN = 0;
     private static String POSITION_ERROR_MESSAGE = "잘못된 위치입니다.";
-
-    public int getPosition() {
-        return position;
-    }
-
     private int position = 0;
 
     public Position(int position){
         Position.validate(position);
         this.position = position;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
