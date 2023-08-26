@@ -1,6 +1,7 @@
 package racing_car.controller;
 
 import static racing_car.view.OutputView.printCarPosition;
+import static racing_car.view.OutputView.printError;
 import static racing_car.view.OutputView.printResultMessage;
 import static racing_car.view.OutputView.printWinners;
 
@@ -19,11 +20,20 @@ public class GameController {
     }
 
     public void play() {
-        String[] carNames = inputView.inputCarNames();
-        cars = new Cars(carNames);
+        makeCars();
         int tryCount = inputView.inputTryCount();
         startGame(tryCount);
         announceWinners();
+    }
+
+    public void makeCars() {
+        try {
+            String[] carNames = inputView.inputCarNames();
+            cars = new Cars(carNames);
+        } catch (NullPointerException e) {
+            printError(e);
+            makeCars();
+        }
     }
 
     public void startGame(int tryCount) {
