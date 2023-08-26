@@ -9,7 +9,7 @@ import java.util.List;
 public class RacingGameController {
     RacingGameOutputView racingGameOutputView = new RacingGameOutputView();
 
-    public void play() {
+    public void playGame() {
         RacingGame racingGame = new RacingGame();
         String inputName = RacingGameInputView.MessageName();
         Cars cars = RacingGameFactory.inputCars(inputName);
