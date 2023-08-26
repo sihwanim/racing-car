@@ -34,7 +34,7 @@ public class GameController {
 
     public void startGame(int tryCount) {
         printResultMessage();
-        for (int t = 1; t <= tryCount; t++) {
+        for (int i = 0; i < tryCount; i++) {
             cars.goCars();
             printCarPosition(cars.getCars());
         }
