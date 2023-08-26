@@ -25,7 +25,7 @@ public class RacingGameOutputView {
 
     public void printTrialResult(Cars cars){
         for (Car car : cars.cars) {
-            System.out.print(String.format(CAR_SITUATION_MESSAGE_FORMAT, car.getName(), MOVEMENT.repeat(car.getPosition())));
+            System.out.println(String.format(CAR_SITUATION_MESSAGE_FORMAT, car.getName(), MOVEMENT.repeat(car.getPosition())));
         }
     }
 

@@ -18,7 +18,6 @@ public class RacingGameController {
         for (int i = 0; i < inputNum; i++) {
             racingGame.moveCars(cars);
             racingGameOutputView.printTrialResult(cars);
-            System.out.println();
         }
 
         showResult(cars);
