@@ -16,7 +16,6 @@ public class RacingGameOutputView {
     private static final String WINNERS_MESSAGE_FORMAT = "%s가 최종 우승했습니다.%n";
     private static final String LIST_SEPARATOR = ", ";
     private static final String MOVEMENT = "-";
-    private static final Scanner sc = new Scanner(System.in);
     public RacingGame racingGame = new RacingGame();
 
     public void printWinner(Cars cars){

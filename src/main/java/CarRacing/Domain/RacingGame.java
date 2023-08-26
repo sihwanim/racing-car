@@ -25,7 +25,8 @@ public class RacingGame {
     }
 
     public int findMaxPosition(Cars cars){
-       return cars.cars.stream().mapToInt(Car::getPosition).max().orElse(0);
+
+        return cars.cars.stream().mapToInt(Car::getPosition).max().orElse(0);
     }
 
     public String findWinners(Cars cars) {
