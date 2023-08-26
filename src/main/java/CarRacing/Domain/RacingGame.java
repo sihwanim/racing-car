@@ -16,7 +16,7 @@ public class RacingGame {
        return cars;
     }
 
-    public Car moveCar(Car car){
+    private Car moveCar(Car car){
         int num = randomUtils.goRandomNumber();
         if(num >= GO_STOP_NUM)
             car.position = new Position(car.position.getPosition() + 1);
