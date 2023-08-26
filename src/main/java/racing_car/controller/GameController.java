@@ -6,6 +6,7 @@ import static racing_car.view.OutputView.printResultMessage;
 import static racing_car.view.OutputView.printWinners;
 
 import java.util.Scanner;
+import racing_car.domain.Round;
 import racing_car.domain.car.Cars;
 import racing_car.view.InputView;
 
@@ -13,6 +14,7 @@ public class GameController {
 
     private final InputView inputView;
     private Cars cars;
+    private Round round;
 
 
     public GameController(Scanner scanner) {
@@ -21,8 +23,8 @@ public class GameController {
 
     public void play() {
         makeCars();
-        int tryCount = inputView.inputTryCount();
-        startGame(tryCount);
+        round = makeRound();
+        startGame();
         announceWinners();
     }
 
@@ -36,9 +38,18 @@ public class GameController {
         }
     }
 
-    public void startGame(int tryCount) {
+    public Round makeRound() {
+        try {
+           return new Round(inputView.inputTryCount());
+        } catch (IllegalArgumentException e) {
+            printError(e);
+            return makeRound();
+        }
+    }
+
+    public void startGame() {
         printResultMessage();
-        for (int i = 0; i < tryCount; i++) {
+        for (int i = 0; i < round.getCount(); i++) {
             cars.goCars();
             printCarPosition(cars.getCars());
         }

@@ -25,14 +25,8 @@ public class InputView {
         return carNames;
     }
 
-    // TODO : 시도횟수 입력 예외처리
-    public int inputTryCount() {
-        int count;
-        do {
-            printMessage(TRY_COUNT_INPUT_MESSAGE);
-            count = scanner.nextInt();
-            scanner.nextLine();
-        } while (count <= 0);
-        return count;
+    public String inputTryCount() {
+        printMessage(TRY_COUNT_INPUT_MESSAGE);
+        return scanner.nextLine();
     }
 }
