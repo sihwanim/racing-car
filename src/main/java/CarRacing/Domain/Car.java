@@ -3,13 +3,12 @@ package CarRacing.Domain;
 import java.util.Objects;
 
 public class Car {
-    private static final int MOVABLE_RPM_MIN = 4;
 
     public Name name;
 
     public Position position;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = new Name(name);
         this.position = new Position(0);
     }
