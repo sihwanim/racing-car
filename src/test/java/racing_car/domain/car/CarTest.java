@@ -18,28 +18,14 @@ class CarTest {
     @DisplayName("차가 전진하는 경우")
     @Test
     void go() {
-        car.go(true);
+        car.go(4);
         assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @DisplayName("차가 멈추는 경우")
     @Test
     void not_go() {
-        car.go(false);
+        car.go(1);
         assertThat(car.getPosition()).isEqualTo(0);
-    }
-
-    @DisplayName("전진조건을 통과한 경우")
-    @Test
-    void isGo_true() {
-        boolean result = car.isGo(4);
-        assertThat(result).isTrue();
-    }
-
-    @DisplayName("전진조건을 통과하지 못한 경우")
-    @Test
-    void isGo_false() {
-        boolean result = car.isGo(3);
-        assertThat(result).isFalse();
     }
 }

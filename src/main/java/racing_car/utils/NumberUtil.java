@@ -3,12 +3,10 @@ package racing_car.utils;
 import java.util.Random;
 
 public class NumberUtil {
-    public static int generateRandomNum(int under) {
-        if (under <= 0) {
-            // TODO: 예외처리
-            return 1;
-        }
+    private static final int RANDOM_UNDER = 10;
+
+    public static int generateRandomNum() {
         Random random = new Random();
-        return random.nextInt(under);
+        return random.nextInt(RANDOM_UNDER);
     }
 }

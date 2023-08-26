@@ -1,6 +1,5 @@
 package racing_car.view;
 
-import static racing_car.utils.StringUtil.limitLength;
 import static racing_car.utils.StringUtil.removeDuplicates;
 
 import java.util.Scanner;
@@ -13,7 +12,6 @@ public class InputView {
     private final Scanner scanner;
 
 
-    // TODO : 차이름들 입력 예외처리
     public InputView(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -21,10 +19,8 @@ public class InputView {
     public String[] inputCarNames() {
         System.out.println(CAR_NAMES_INPUT_MESSAGE);
         String[] carNames = scanner.nextLine().split(CAR_NAME_SPLIT_REGEX);
-        for (int i = 0; i < carNames.length; i++) {
-            carNames[i] = limitLength(carNames[i], LIMIT_LENGTH);
-        }
-        return removeDuplicates(carNames);
+        // TODO: 빈 문자열인지 검사
+        return carNames;
     }
 
     // TODO : 시도횟수 입력 예외처리
