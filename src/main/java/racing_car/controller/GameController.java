@@ -23,27 +23,26 @@ public class GameController {
 
     public void play() {
         makeCars();
-        round = makeRound();
+        makeRound();
         startGame();
         announceWinners();
     }
 
     public void makeCars() {
         try {
-            String[] carNames = inputView.inputCarNames();
-            cars = new Cars(carNames);
+            cars = new Cars(inputView.inputCarNames());
         } catch (NullPointerException e) {
             printError(e);
             makeCars();
         }
     }
 
-    public Round makeRound() {
+    public void makeRound() {
         try {
-           return new Round(inputView.inputTryCount());
+           round = new Round(inputView.inputTryCount());
         } catch (IllegalArgumentException e) {
             printError(e);
-            return makeRound();
+            makeRound();
         }
     }
 
