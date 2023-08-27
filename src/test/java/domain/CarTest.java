@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.extractProperty;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class CarTest {
@@ -12,21 +13,19 @@ public class CarTest {
     @DisplayName("자동차를 만들 수 있다.")
     public void makeCar() {
         String name = "군밤";
-        Car car = new Car(name);
+        Engine engine = new SteadyEngine();
+        Car car = new Car(name, engine);
         assertThat(car.getName()).isEqualTo(name);
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Test
-    @DisplayName("자동차는 숫자가 4이상이면 달린다.")
+    @DisplayName("자동차는 조건을 만족하면 달릴 수 있다.")
     public void runCar() {
-        Car runningCar = new Car("run");
-        Car stopCar = new Car("stop");
-        runningCar.run(4);
-        stopCar.run(1);
-        assertAll(
-                () -> assertThat(runningCar.getPosition()).isEqualTo(1),
-                () -> assertThat(stopCar.getPosition()).isEqualTo(0)
-        );
+        Engine engine = new SteadyEngine();
+        Car car = new Car("run", engine);
+        assertThat(car.getPosition()).isEqualTo(0);
+        car.run();
+        assertThat(car.getPosition()).isEqualTo(1);
     }
 }

@@ -5,14 +5,16 @@ import java.util.Objects;
 public class Car {
     private final Name name;
     private final Position position;
+    private final Engine engine;
 
-    public Car(String name) {
+    public Car(String name, Engine engine) {
         this.name = new Name(name);
         this.position = new Position(0);
+        this.engine = engine;
     }
 
-    public void run(int number) {
-        if (number >= 4) {
+    public void run() {
+        if (engine.canMove()) {
             position.moveForward();
         }
     }

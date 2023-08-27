@@ -2,22 +2,21 @@ package domain;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
 
     public Cars(String[] names) {
+        Engine engine = new RandomEngine();
         this.cars = Arrays.stream(names)
-                .map(Car::new)
+                .map(name -> new Car(name, engine))
                 .collect(Collectors.toList());
     }
 
     public void race() {
-        Random random = new Random();
         for (Car car : cars) {
-            car.run(random.nextInt(9));
+            car.run();
         }
     }
 
