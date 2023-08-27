@@ -7,7 +7,7 @@ import static racing_car.view.OutputView.printWinners;
 
 import java.util.Scanner;
 import racing_car.domain.Round;
-import racing_car.domain.car.Cars;
+import racing_car.domain.Cars;
 import racing_car.view.InputView;
 
 public class GameController {

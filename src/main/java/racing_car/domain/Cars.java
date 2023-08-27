@@ -1,4 +1,4 @@
-package racing_car.domain.car;
+package racing_car.domain;
 
 import static racing_car.utils.NumberUtil.generateRandomNum;
 import static racing_car.view.OutputView.printError;
@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import racing_car.domain.car.Car;
 
 public class Cars {
     public static final String CAR_NAMES_DUPLICATE_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복된 이름을 사용할 수 없습니다.";

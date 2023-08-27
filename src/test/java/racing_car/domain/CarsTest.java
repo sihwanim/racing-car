@@ -1,8 +1,8 @@
-package racing_car.domain.car;
+package racing_car.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
-import static racing_car.domain.car.Cars.CAR_NAMES_DUPLICATE_ERROR_MESSAGE;
+import static racing_car.domain.Cars.CAR_NAMES_DUPLICATE_ERROR_MESSAGE;
 import static racing_car.domain.car.Name.CAR_NAME_LENGTH_ERROR_MESSAGE;
 import static racing_car.view.OutputView.CHANGE_ARROW;
 import static racing_car.view.OutputView.NAME_CHANGE_MESSAGE;
@@ -15,6 +15,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racing_car.domain.Cars;
+import racing_car.domain.car.Car;
 
 class CarsTest {
     Cars cars;
