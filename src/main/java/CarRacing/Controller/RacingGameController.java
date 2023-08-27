@@ -13,9 +13,13 @@ public class RacingGameController {
         RacingGame racingGame = new RacingGame();
         String inputName = RacingGameInputView.MessageName();
         Cars cars = RacingGameFactory.inputCars(inputName);
-        int inputNum = RacingGameInputView.MessageNumber();
+        RacingGameFactory racingGameFactory = new RacingGameFactory();
 
-        for (int i = 0; i < inputNum; i++) {
+        int playNum = racingGameFactory.inputPlayNum(
+                RacingGameInputView.MessageNumber()
+        );
+
+        for (int i = 0; i < playNum; i++) {
             racingGame.moveCars(cars);
             racingGameOutputView.printTrialResult(cars);
         }

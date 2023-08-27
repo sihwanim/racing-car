@@ -14,9 +14,10 @@ public class RacingGameInputView {
         return result;
     }
 
-    public static Integer MessageNumber() {
+    public static String MessageNumber() {
         System.out.println(GETNUMBER_MESSAGE);
-        int result = sc.nextInt();
+        String result = sc.nextLine();
+
         return result;
     }
 

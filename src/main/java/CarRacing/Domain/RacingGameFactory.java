@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class RacingGameFactory {
-    private static final String NAME_SPLIT_DELIMETER = ",";
+    private static final String NAME_SPLIT_DELIMETER = ", ";
     private static final Pattern NUMBER_PATTERN = Pattern.compile("[0-9]+");
 
-    private RacingGameFactory() {
+    public RacingGameFactory() {
 
     }
 
