@@ -16,12 +16,10 @@ public class RacingGame {
         return cars;
     }
 
-    private Car moveCar(Car car) {
+    private void moveCar(Car car) {
         int num = randomUtils.goRandomNumber();
         if (num >= GO_STOP_NUM)
             car.position = new Position(car.position.getPosition() + 1);
-
-        return car;
     }
 
     private int findMaxPosition(Cars cars) {
