@@ -5,13 +5,13 @@ public class Position {
     private static String POSITION_ERROR_MESSAGE = "잘못된 위치입니다.";
     private int position = 0;
 
-    public Position(int position){
+    public Position(int position) {
         Position.validate(position);
         this.position = position;
     }
 
     private static void validate(int position) {
-        if(position < 0){
+        if (position < 0) {
             throw new IllegalArgumentException(String.format(POSITION_ERROR_MESSAGE));
         }
     }
@@ -26,9 +26,6 @@ public class Position {
                 "position=" + position +
                 '}';
     }
-
-
-
 
 
 }

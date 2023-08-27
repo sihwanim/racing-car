@@ -22,9 +22,9 @@ public class RacingGameFactory {
 
     }
 
-    public int inputPlayNum(String inputNum){
+    public int inputPlayNum(String inputNum) {
         Matcher matcher = NUMBER_PATTERN.matcher(inputNum);
-        if(!matcher.matches())
+        if (!matcher.matches())
             throw new IllegalArgumentException("숫자를 입력해주시길 바랍니다.");
         return Integer.parseInt(inputNum);
     }

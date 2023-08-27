@@ -9,30 +9,35 @@ public class RacingGame {
     RandomUtils randomUtils = new RandomUtils();
     private final int GO_STOP_NUM = 4;
 
-    public Cars moveCars(Cars cars){
-       for(int i = 0 ; i < cars.cars.size(); i++){
-           moveCar(cars.cars.get(i));
-       }
-       return cars;
+    public Cars moveCars(Cars cars) {
+        for (int i = 0; i < cars.getCars().size(); i++) {
+            moveCar(cars.getCars().get(i));
+        }
+        return cars;
     }
 
-    private Car moveCar(Car car){
+    private Car moveCar(Car car) {
         int num = randomUtils.goRandomNumber();
-        if(num >= GO_STOP_NUM)
+        if (num >= GO_STOP_NUM)
             car.position = new Position(car.position.getPosition() + 1);
 
         return car;
     }
 
-    public int findMaxPosition(Cars cars){
+    private int findMaxPosition(Cars cars) {
 
-        return cars.cars.stream().mapToInt(Car::getPosition).max().orElse(0);
+        return cars.getCars()
+                .stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 
     public String findWinners(Cars cars) {
         int maxPosition = findMaxPosition(cars);
 
-        return cars.cars.stream()
+        return cars.getCars()
+                .stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .collect(Collectors.joining(","));

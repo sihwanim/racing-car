@@ -8,13 +8,13 @@ public class RacingGameInputView {
     private static final String LIST_SEPARATOR = ", ";
     private static Scanner sc = new Scanner(System.in);
 
-    public static String MessageName(){
+    public static String MessageName() {
         System.out.println(GETNAME_MESSAGE);
         String result = sc.nextLine();
         return result;
     }
 
-    public static Integer MessageNumber(){
+    public static Integer MessageNumber() {
         System.out.println(GETNUMBER_MESSAGE);
         int result = sc.nextInt();
         return result;

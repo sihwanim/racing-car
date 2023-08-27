@@ -18,12 +18,12 @@ public class RacingGameOutputView {
     private static final String MOVEMENT = "-";
     public RacingGame racingGame = new RacingGame();
 
-    public void printWinner(Cars cars){
-        String winners=racingGame.findWinners(cars);
-        System.out.println(String.format(WINNERS_MESSAGE_FORMAT,winners));
+    public void printWinner(Cars cars) {
+        String winners = racingGame.findWinners(cars);
+        System.out.println(String.format(WINNERS_MESSAGE_FORMAT, winners));
     }
 
-    public void printTrialResult(Cars cars){
+    public void printTrialResult(Cars cars) {
         for (Car car : cars.cars) {
             System.out.println(String.format(CAR_SITUATION_MESSAGE_FORMAT, car.getName(), MOVEMENT.repeat(car.getPosition())));
         }
