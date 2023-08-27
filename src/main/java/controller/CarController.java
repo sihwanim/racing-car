@@ -16,16 +16,20 @@ public class CarController {
     }
 
     public void play() {
-        final Cars cars = makeCars();
-        final Round round = makeRound();
-        final Game game = new Game(cars, round);
+        try {
+            final Cars cars = makeCars();
+            final Round round = makeRound();
+            final Game game = new Game(cars, round);
 
-        OutputView.printResult();
-        while (!game.isEnd()) {
-            game.race();
-            OutputView.printCars(game.getCars());
+            OutputView.printResult();
+            while (!game.isEnd()) {
+                game.race();
+                OutputView.printCars(cars.getCars());
+            }
+            OutputView.printWinners(game.findWinners());
+        } catch (Exception error) {
+            OutputView.printError(error);
         }
-        OutputView.printWinners(game.findWinners());
     }
 
     private Round makeRound() {
