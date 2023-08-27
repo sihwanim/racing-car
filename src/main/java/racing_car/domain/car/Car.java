@@ -1,13 +1,11 @@
 package racing_car.domain.car;
 
-import static racing_car.domain.car.Name.CHANGE_ARROW;
-import static racing_car.domain.car.Name.NAME_CHANGE_MESSAGE;
 import static racing_car.domain.car.Name.NAME_MAX_LENGTH;
 import static racing_car.view.OutputView.printError;
-import static racing_car.view.OutputView.printMessage;
+import static racing_car.view.OutputView.printNameChange;
 
 public class Car {
-    private final int MOVE_STANDARD = 4;
+    private static final int MOVE_STANDARD = 4;
     private Name name;
     private int position;
 
@@ -19,7 +17,7 @@ public class Car {
         }catch (IllegalArgumentException e) {
             printError(e);
             this.name = new Name(name.substring(0, NAME_MAX_LENGTH));
-            printMessage(NAME_CHANGE_MESSAGE + name + CHANGE_ARROW + this.name.getName());
+            printNameChange(name, getName());
         }
     }
 
@@ -30,7 +28,7 @@ public class Car {
         }catch (IllegalArgumentException e) {
             printError(e);
             this.name = new Name(name.substring(0, NAME_MAX_LENGTH));
-            printMessage(NAME_CHANGE_MESSAGE + name + CHANGE_ARROW + this.name.getName());
+            printNameChange(name, getName());
         }
     }
 
@@ -41,6 +39,10 @@ public class Car {
 
     public String getName() {
         return name.getName();
+    }
+
+    public void setName(String name) {
+        this.name.setName(name);
     }
 
     public int getPosition() {
