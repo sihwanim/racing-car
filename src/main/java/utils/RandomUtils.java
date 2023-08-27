@@ -3,9 +3,9 @@ package utils;
 import java.util.Random;
 
 public class RandomUtils {
-    private static final Random RANDOM = new Random();
     public static final String RANGE_FORMAT_ERROR = "범위의 시작은 끝보다 작아야 합니다";
     public static final String RANGE_MIN_LIMIT_ERROR = "범위의 시작은 0보다 커야 합니다";
+    private static final Random RANDOM = new Random();
 
     private RandomUtils() {
     }

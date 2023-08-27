@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputView {
-    private static final String ERROR_PREFIX = "[ERROR] ";
     public static final String RUNNING_UNIT = "-";
+    private static final String ERROR_PREFIX = "[ERROR] ";
 
     public static void printCars(List<Car> cars) {
         cars.forEach((car -> {
