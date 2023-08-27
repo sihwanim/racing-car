@@ -1,7 +1,6 @@
 package racing_car.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racing_car.domain.car.Car;
 
 public class OutputView {
@@ -28,13 +27,11 @@ public class OutputView {
     }
 
     public static void printWinners(List<String> carNames) {
-        StringBuilder sb = new StringBuilder();
-        carNames.forEach(name -> sb.append(name).append(WINNER_SEPARATOR));
-        if (sb.length() > 0) {
-            sb.delete(sb.length() - 2, sb.length());
+        if (carNames.size() == 0) {
+            System.out.println(NO_WINNER_MESSAGE);
+            return;
         }
-        sb.append(WIN_MESSAGE);
-        System.out.println(sb);
+        System.out.println(String.join(WINNER_SEPARATOR, carNames).concat(WIN_MESSAGE));
     }
 
     public static void printError(Exception e) {

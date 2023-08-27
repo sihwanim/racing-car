@@ -75,7 +75,7 @@ public class Cars {
 
     public int findMaxPosition() {
         return cars.stream().mapToInt(Car::getPosition)
-            .max().orElseThrow(); // TODO : cars가 비어있을 경우 예외처리
+            .max().orElse(-1);
     }
 
     public List<Car> getCars() {
