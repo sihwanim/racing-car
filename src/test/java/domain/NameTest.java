@@ -23,7 +23,7 @@ class NameTest {
         String name = "wrongName";
         assertThatThrownBy(() -> new Name(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(CAR_NAME_VALIDATION_ERROR_MESSAGE);
+                .hasMessage(CAR_NAME_VALIDATION_ERROR_MESSAGE);
 
     }
 }

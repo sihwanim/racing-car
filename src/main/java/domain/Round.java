@@ -1,6 +1,7 @@
 package domain;
 
 public class Round {
+    private static final int ROUND_RANGE_MIN = 0;
     private int round;
 
     public Round(String round) {
@@ -13,17 +14,17 @@ public class Round {
     }
 
     private void validateRound(String round) {
-        if (Integer.parseInt(round) < 0) {
+        if (Integer.parseInt(round) < ROUND_RANGE_MIN) {
             throw new IllegalArgumentException("레이싱 횟수는 0보다 커야합니다.");
         }
     }
 
     public void over() {
-        round--;
+        this.round--;
     }
 
     public boolean isEnd() {
-        return round == 0;
+        return round == ROUND_RANGE_MIN;
     }
 
     public int getRound() {
