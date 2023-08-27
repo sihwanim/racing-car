@@ -3,36 +3,26 @@ package domain;
 import java.util.Objects;
 
 public class Car {
-    public static final String CAR_NAME_VALIDATION_ERROR_MESSAGE = "자동차 이름은 5자 이하여야 합니다.";
-
-    private final String name;
-
-    private int position;
+    private final Name name;
+    private final Position position;
 
     public Car(String name) {
-        validateName(name);
-        this.name = name.trim();
-        this.position = 0;
-    }
-
-    private void validateName(String name) {
-        if (name.trim().length() > 5) {
-            throw new IllegalArgumentException(CAR_NAME_VALIDATION_ERROR_MESSAGE);
-        }
+        this.name = new Name(name);
+        this.position = new Position(0);
     }
 
     public void run(int number) {
         if (number >= 4) {
-            position++;
+            position.moveForward();
         }
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     public int getPosition() {
-        return position;
+        return position.getPosition();
     }
 
     @Override

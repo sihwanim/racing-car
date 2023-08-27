@@ -10,7 +10,6 @@ public class Cars {
 
     public Cars(String[] names) {
         this.cars = Arrays.stream(names)
-                .map(String::trim)
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
